@@ -5,18 +5,33 @@ import { connect } from 'react-redux';
 
 import '../styles/sidebar.css';
 
-const Sidebar = ({ modules }) => (
+
+function toggleLesson(module, lesson) {
+    return {
+        type: 'TOGGLE_LESSON',
+        module,
+        lesson,
+    }
+}
+
+const Sidebar = ({ modules, dispatch }) => (
     <aside className="sidebar">
         {
-            modules.map(m => (
-                <div key={m.id}>
+            modules.map(module => (
+                <div key={module.id}>
                     <br/><br/>
 
-                    <strong> {m.title} </strong>
+                    <strong> {module.title} </strong>
                     <ul>
                         {
-                            m.lessons.map( (l)  => ( 
-                                <li key={l.id}> {l.title}</li>
+                            module.lessons.map( (lesson)  => ( 
+                                <li key={lesson.id}> 
+                                    {lesson.title}
+                                    &nbsp;&nbsp;
+                                    <button onClick={ () => dispatch(toggleLesson(module, lesson)) }>
+                                        Selecionar
+                                    </button>
+                                </li>
                             ))
                         }   
                     </ul>
@@ -26,4 +41,4 @@ const Sidebar = ({ modules }) => (
     </aside>
 )
 
-export default connect(state => ({ modules: state }))(Sidebar);
+export default connect(state => ({ modules: state.modules }))(Sidebar);
