@@ -1,14 +1,17 @@
 'use strict'
 
-// import React from 'react'
+import React from 'react'
 
 import '../styles/video.css';
 
 
+// steless components
+// https://blog.rocketseat.com.br/react-do-zero-ciclo-de-vida-stateless-components-e-arquitetura-flux/
 const Video = () => (
     <div className="video">
         <div className="">
-            <h1> Video Reproduzindo</h1>
+            <strong>  Modulo X</strong> <br/>
+            <span> Aula x</span>
         </div>
     </div>
 )
