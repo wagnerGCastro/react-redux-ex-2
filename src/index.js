@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 
 import './styles/index.css';
+import './styles/app.scss';
 import App from './App';
 
 
