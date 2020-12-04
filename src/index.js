@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from "react-router-dom";
+
+import App from './App';
 
 
-// import './styles/index.css';
-// import './styles/app.scss';
+// ReactDOM.render(
+//     <React.StrictMode>
+//         <BrowserRouter>
+//             <App />
+//         </BrowserRouter>
+//     </React.StrictMode>,
 
-import App from './ReactHooks';
+//     document.getElementById('root')
+// );
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <BrowserRouter> 
+        <App />
+    </BrowserRouter>, 
+    document.getElementById('root')
 );
-
