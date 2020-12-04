@@ -1,4 +1,4 @@
-import React , { Component } from 'react'; 
+import React , { Component, Suspense } from 'react'; 
 import { withRouter, Route, Switch, Link } from "react-router-dom";
 
 import routes from  './routes';
@@ -56,15 +56,17 @@ class App extends  Component {
                 </header> 
 
                 <main className="container main-site">
-                    <Switch>
-                        {routes.map((prop, idx) => (
-                            <Route exact path={prop.path} render={props => (<prop.component {...props} />)} key={idx} />
-                        ))}
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Switch>
+                            {routes.map((prop, idx) => (
+                                <Route exact path={prop.path} render={props => (<prop.component {...props} />)} key={idx} />
+                            ))}
 
-                        {/* {routes.map((prop, idx) => (
-                            <Route exact path={prop.path} component={prop.component} key={idx} />
-                        ))} */}
-                    </Switch>
+                            {/* {routes.map((prop, idx) => (
+                                <Route exact path={prop.path} component={prop.component} key={idx} />
+                            ))} */}
+                        </Switch>
+                    </Suspense>
                 </main>    
 
                 <footer className="footer-site">
