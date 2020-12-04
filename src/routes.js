@@ -1,20 +1,20 @@
+import { lazy } from 'react';
 
+const Home = lazy(() => import('@views/Home'));
+const Sobre = lazy(() => import('@views/Sobre'));
 
-import Home from "@views/Home";
-import Sobre from "@views/Sobre";
 
 /**
  * Hoooks
  * -----------------------------------
  */
-import ListRepositories from "@views/hooks/ListRepositories";
-
+const ListRepositories = lazy(() => import('@views/hooks/ListRepositories'));
 
 /**
  * Redux
  * -----------------------------------
  */
-import ListVideos from "@views/redux/ListVideos";
+const ListVideos = lazy(() => import('@views/redux/ListVideos'));
 
 
 const routes = [
@@ -24,6 +24,7 @@ const routes = [
     { path: "/hooks/list-repositories", component: ListRepositories, title: "Listando Repositorios", parent: '/hooks' },
 
     { path: "/redux/list-videos", component: ListVideos, title: "Listando videos", parent: '/redux' },
+    
     // { path: "*", component: Error404 },
 ];
 
